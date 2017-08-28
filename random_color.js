@@ -1,16 +1,16 @@
 function randomColor(){
-	
+
 	var a = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
 	var color = "#",
 		  rgb = "rgb (",
 		  r = 0, g = 0, b = 0;
-	
+
 	for(var i = 0; i < 6; i++){
 		//Random number 0-15
 		var rand = Math.floor(Math.random() * 16);
-		
+
 		color = color + a[rand];
-		
+
 		//For HEX to RGB
 		if(i == 0)
 			r = rand*16;
@@ -25,10 +25,10 @@ function randomColor(){
 		if (i == 5)
 			b = b + rand;
 	}
-	
+
 	//RGB color
 	rgb = rgb + r + ", " + g + ", " + b + ")";
-	
+
 	document.getElementById('color').style.backgroundColor = color;
 	document.getElementById('color').style.boxShadow = "0px 0px 30px 5px " + color;
 	document.getElementById('color-info').innerHTML = "HEX: " + color + "</br>" + "RGB: " + rgb;
