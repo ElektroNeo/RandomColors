@@ -5,6 +5,11 @@
 	margin: 30px;
 	box-shadow: 0px 0px 30px 5px rgb(0,0,0);
 	}
+.title{
+	margin: 3px;
+	padding: 3px;
+}
+
 
 .myButton {
 	background-color:#000;
@@ -15,4 +20,11 @@
 	font-size:14px;
 	padding:16px 31px;
 	text-decoration:none;
+}
+
+.colors{
+	border:1px solid;
+	height: 100px;
+	float: right;
+
 }
