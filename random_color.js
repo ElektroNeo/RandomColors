@@ -33,6 +33,6 @@ function randomColor(){
 	document.getElementById('color').style.boxShadow = "0px 0px 30px 5px " + color;
 
 
-	document.getElementById('color-info').innerHTML = "<div class='alert alert-primary' role='alert'><center>HEX: " + color + "</br>" + "RGB: " + rgb + "</center></div>";
+	document.getElementById('color-info').innerHTML = "<div style='background-color: " + color + "' class='alert alert-primary' role='alert'><center>HEX: " + color + "</br>" + "RGB: " + rgb + "</center></div>";
 
 }
