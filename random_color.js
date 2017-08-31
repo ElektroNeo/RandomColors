@@ -1,38 +1,45 @@
 function randomColor(){
 
-	var a = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
-	var color = "#",
-		  rgb = "rgb (",
-		  r = 0, g = 0, b = 0;
+	var hexNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+	var hex = "#";
 
 	for(var i = 0; i < 6; i++){
 		//Random number 0-15
 		var rand = Math.floor(Math.random() * 16);
-
-		color = color + a[rand];
-
-		//For HEX to RGB
-		if(i == 0)
-			r = rand*16;
-		if (i == 1)
-			r = r + rand;
-		if (i == 2)
-			g = rand*16;
-		if (i == 3)
-			g = g + rand;
-		if (i == 4)
-			b = rand*16;
-		if (i == 5)
-			b = b + rand;
+		hex = hex + hexNum[rand];
 	}
 
-	//RGB color
-	rgb = rgb + r + ", " + g + ", " + b + ")";
+	return hex;
+}
 
-	document.getElementById('color').style.backgroundColor = color;
-	document.getElementById('color').style.boxShadow = "0px 0px 30px 5px " + color;
+function HEXtoRGB (hex) {
+    hex = hex.trim();
+    hex = hex[0] === '#' ? hex.substr(1) : hex;
+    var bigint = parseInt(hex, 16), h = [];
+    if (hex.length === 3) {
+        h.push((bigint >> 4) & 255);
+        h.push((bigint >> 2) & 255);
+    } else {
+        h.push((bigint >> 16) & 255);
+        h.push((bigint >> 8) & 255);
+    }
+    h.push(bigint & 255);
 
+    return 'rgb('+h.join()+')';
+}
 
-	document.getElementById('color-info').innerHTML = "<div style='background-color: " + color + "' class='alert alert-primary' role='alert'><center>HEX: " + color + "</br>" + "RGB: " + rgb + "</center></div>";
-
+function addColors() {
+	var hex, rgb;
+  var html = "", left, top, j = 0;
+	for (var i = 0; i < 70; i++) {
+		hex = randomColor();
+		rgb = HEXtoRGB(hex);
+		left = j*130;
+		top = Math.floor((i/10))*180;
+		j++;
+		if(j == 10)
+			j = 0;
+		html = html + "<div class='main'; style='width: 100px; height: 100px; left: "+ left +"px; top: " + top + "px;'><div style='background-color: " + hex + "';" + " class='color'> " + "</div>" + "<div class='color-info'> " + "<center>" + hex + "</br>" + rgb + "</center>" + "</div></div>";
+	}
+			document.getElementById('colors').innerHTML = html;
 }

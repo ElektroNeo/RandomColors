@@ -1,16 +1,20 @@
-#color {
-	width: 150px;
-	height: 150px;
+.color {
+	width: 100px;
+	height: 100px;
 	background-color: black;
-	margin: 30px;
-	box-shadow: 0px 0px 30px 5px rgb(0,0,0);
+	margin: 10px;
 	}
-.title{
-	margin: 3px;
-	padding: 3px;
+.color-info {
+	font-size: 15px;
 }
-
-
+.main {
+	position: absolute;
+}
+#colors {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
 .myButton {
 	background-color:#000;
 	display:inline-block;
@@ -20,11 +24,4 @@
 	font-size:14px;
 	padding:16px 31px;
 	text-decoration:none;
-}
-
-.colors{
-	border:1px solid;
-	height: 100px;
-	float: right;
-
 }
