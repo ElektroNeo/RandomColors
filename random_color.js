@@ -1,6 +1,6 @@
 function randomColor(){
 
-	var hexNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+	var hexNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 	var hex = "#";
 
 	for(var i = 0; i < 6; i++){
@@ -30,16 +30,13 @@ function HEXtoRGB (hex) {
 
 function addColors() {
 	var hex, rgb;
-  var html = "", left, top, j = 0;
-	for (var i = 0; i < 70; i++) {
+  var html = "";
+	var number = document.getElementById('num').value;
+	for (var i = 0; i < number; i++) {
 		hex = randomColor();
 		rgb = HEXtoRGB(hex);
-		left = j*130;
-		top = Math.floor((i/10))*180;
-		j++;
-		if(j == 10)
-			j = 0;
-		html = html + "<div class='main'; style='width: 100px; height: 100px; left: "+ left +"px; top: " + top + "px;'><div style='background-color: " + hex + "';" + " class='color'> " + "</div>" + "<div class='color-info'> " + "<center>" + hex + "</br>" + rgb + "</center>" + "</div></div>";
+
+		html = html + "<div class='main'><div style='background-color: " + hex + "';" + " class='color'> " + "</div>" + "<div class='color-info'> " + "<center>" + hex + "</br>" + rgb + "</center>" + "</div></div>";
 	}
 			document.getElementById('colors').innerHTML = html;
 }
